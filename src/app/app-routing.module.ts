@@ -8,8 +8,25 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'productos',
     pathMatch: 'full'
+  },
+  {
+    path: 'productos',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./productos/productos.module').then( m => m.ProductosPageModule)
+      },
+      {
+        path: ':productId', //este nombre de variable sera el que se usara en Product Detail Module para llamar a este parametro
+        loadChildren:() => import('./productos/detail/detail.module').then(m => m.DetailPageModule)
+      }
+    ]
+  },
+  {
+    path: 'carrito',
+    loadChildren: () => import('./carrito/carrito.module').then( m => m.CarritoPageModule)
   },
 ];
 

@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{producto.name}}</ion-title>
+    <ion-button (click)="goToHome();">BACK</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item>
+      <ion-label>${{producto.price}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Cantidad: {{producto.count}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-img>
+    [src]='producto.imageURL'
+    [alt]='producto.name'
+  </ion-img>
+</ion-content>
